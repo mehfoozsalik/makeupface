@@ -1,7 +1,7 @@
 import { Hero } from "@/components/home/hero";
 import { HomeSections } from "@/components/home/sections";
 import { createMetadata } from "@/lib/seo/metadata";
-
+import { SpeedInsights } from "@vercel/speed-insights/next";
 export const metadata = createMetadata({
   title: "Discover Makeup That Suits You",
   description:
@@ -12,6 +12,7 @@ export const metadata = createMetadata({
 export default function HomePage() {
   return (
     <>
+      <SpeedInsights />
       <Hero />
       <HomeSections />
     </>
