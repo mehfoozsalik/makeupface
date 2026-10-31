@@ -5,7 +5,7 @@ const DEFAULT_DESCRIPTION =
   "Upload a selfie, learn your face shape and features, and get makeup recommendations with placement maps and tutorials you can use at home.";
 
 export function absoluteUrl(path = "/"): string {
-  const base = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+  const base = process.env.NEXT_PUBLIC_APP_URL || "https://makeupface.app";
   return new URL(path, base).toString();
 }
 

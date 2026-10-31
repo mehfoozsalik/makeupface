@@ -21,7 +21,7 @@ export function articleJsonLd({
   datePublished?: string;
   dateModified?: string;
 }) {
-  const base = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+  const base = process.env.NEXT_PUBLIC_APP_URL || "https://makeupface.app";
   const url = new URL(path, base).toString();
   return {
     "@context": "https://schema.org",
@@ -41,7 +41,7 @@ export function articleJsonLd({
 }
 
 export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
-  const base = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+  const base = process.env.NEXT_PUBLIC_APP_URL || "https://makeupface.app";
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
