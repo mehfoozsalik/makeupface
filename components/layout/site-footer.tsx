@@ -10,7 +10,6 @@ const COLUMNS = [
       { href: "/eye-makeup", label: "Eye Makeup" },
       { href: "/lip-makeup", label: "Lip Makeup" },
       { href: "/makeup", label: "Makeup Hub" },
-      { href: "/blog", label: "Blog" },
       { href: "/try-on", label: "Look Try On" },
     ],
   },

@@ -41,7 +41,6 @@ import { cn } from "@/lib/utils/cn";
 
 const NAV = [
   { href: "/makeup", label: "Makeup Hub" },
-  { href: "/blog", label: "Blog" },
   { href: "/try-on", label: "Try On" },
   { href: "/makeup-looks", label: "Looks" },
   { href: "/guides", label: "Guides" },
