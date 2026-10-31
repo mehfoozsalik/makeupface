@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520" role="img" aria-label="Blush placement guide">
+  <rect width="400" height="520" fill="#FAF8F5"/>
+  <ellipse cx="200" cy="240" rx="120" ry="155" fill="#E8D5C4"/>
+  <path d="M95 200 C95 90 305 90 305 200 L295 155 C275 55 125 55 105 155 Z" fill="#5C4033" opacity=".9"/>
+  <ellipse cx="155" cy="220" rx="20" ry="9" fill="#fff"/><ellipse cx="245" cy="220" rx="20" ry="9" fill="#fff"/>
+  <circle cx="155" cy="220" r="5" fill="#3D2B1F"/><circle cx="245" cy="220" r="5" fill="#3D2B1F"/>
+  <path d="M178 295 Q200 312 222 295 Q200 322 178 295" fill="#C9878D" opacity=".7"/>
+  <ellipse cx="130" cy="265" rx="36" ry="20" fill="#C9878D" opacity=".5"/>
+  <ellipse cx="270" cy="265" rx="36" ry="20" fill="#C9878D" opacity=".5"/>
+  <text x="24" y="490" fill="#827A72" font-family="system-ui,sans-serif" font-size="12">Educational overlay · upper cheek apples / cheekbones</text>
+</svg>
