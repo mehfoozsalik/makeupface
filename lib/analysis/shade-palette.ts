@@ -50,14 +50,14 @@ export function buildShadeGuide(
   const face = analysis.faceShape.primary;
 
   const eyeName =
-    style === "soft_glam" || style === "full_glam" || style === "smokey"
+    style === "soft_glam" || style === "full_glam" || style === "party"
       ? "Soft taupe / rose-brown lid"
-      : style === "clean_girl" || style === "natural"
+      : style === "clean_girl" || style === "natural" || style === "minimalist"
         ? "Sheer champagne-taupe wash"
         : "Neutral brown lid family";
 
   const lipName =
-    style === "bold" || style === "full_glam"
+    style === "full_glam" || style === "party" || style === "bridal"
       ? "Deeper berry or terracotta lip"
       : "Your-lips-but-better tint";
 

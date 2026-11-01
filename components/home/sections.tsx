@@ -34,7 +34,11 @@ function FadeIn({
       initial={reduce ? false : { opacity: 0, transform: "translateY(16px)" }}
       whileInView={{ opacity: 1, transform: "translateY(0px)" }}
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.35, delay: reduce ? 0 : delay, ease: [0.23, 1, 0.32, 1] }}
+      transition={{
+        duration: 0.35,
+        delay: reduce ? 0 : delay,
+        ease: [0.23, 1, 0.32, 1],
+      }}
       className={className}
     >
       {children}
@@ -84,7 +88,10 @@ export function HomeSections() {
           ].map((step, i) => (
             <FadeIn key={step.title} delay={i * 0.06}>
               <div className="glass-panel rounded-2xl p-6">
-                <step.icon className="size-6 text-[var(--dusty-rose)]" strokeWidth={1.5} />
+                <step.icon
+                  className="size-6 text-[var(--dusty-rose)]"
+                  strokeWidth={1.5}
+                />
                 <h3 className="mt-4 font-serif text-xl">{step.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-[var(--foreground-muted)]">
                   {step.body}
@@ -126,8 +133,8 @@ export function HomeSections() {
             Discover Your Face Shape
           </h2>
           <p className="mt-3 max-w-2xl text-[var(--foreground-muted)]">
-            Oval, round, square, heart, diamond, or oblong: each silhouette
-            gets a slightly different contour, blush, and highlight map.
+            Oval, round, square, heart, diamond, or oblong: each silhouette gets
+            a slightly different contour, blush, and highlight map.
           </p>
         </FadeIn>
         <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 md:grid-cols-6">
@@ -177,11 +184,16 @@ export function HomeSections() {
               href={item.href}
               className="group block p-2 transition-opacity hover:opacity-90"
             >
-              <item.icon className="size-7 text-[var(--dusty-rose)]" strokeWidth={1.4} />
+              <item.icon
+                className="size-7 text-[var(--dusty-rose)]"
+                strokeWidth={1.4}
+              />
               <h3 className="mt-4 font-serif text-2xl group-hover:text-[var(--dusty-rose)]">
                 {item.title}
               </h3>
-              <p className="mt-2 text-sm text-[var(--foreground-muted)]">{item.body}</p>
+              <p className="mt-2 text-sm text-[var(--foreground-muted)]">
+                {item.body}
+              </p>
             </Link>
           ))}
         </div>
@@ -191,12 +203,18 @@ export function HomeSections() {
       <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
         <div className="flex items-end justify-between gap-4">
           <div>
-            <h2 className="font-serif text-3xl sm:text-4xl">Personalized Makeup Looks</h2>
+            <h2 className="font-serif text-3xl sm:text-4xl">
+              Personalized Makeup Looks
+            </h2>
             <p className="mt-2 text-[var(--foreground-muted)]">
-              From clean girl to soft glam. Browse looks, then personalize with analysis.
+              From clean girl to soft glam. Browse looks, then personalize with
+              analysis.
             </p>
           </div>
-          <Link href="/makeup-looks" className="hidden text-sm text-[var(--dusty-rose)] sm:block">
+          <Link
+            href="/makeup-looks"
+            className="hidden text-sm text-[var(--dusty-rose)] sm:block"
+          >
             View all
           </Link>
         </div>
@@ -226,7 +244,9 @@ export function HomeSections() {
       {/* Tutorials */}
       <section>
         <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
-          <h2 className="font-serif text-3xl sm:text-4xl">Visual Makeup Tutorials</h2>
+          <h2 className="font-serif text-3xl sm:text-4xl">
+            Visual Makeup Tutorials
+          </h2>
           <p className="mt-3 max-w-2xl text-[var(--foreground-muted)]">
             Placement diagrams show where products go, not just what to buy.
           </p>
@@ -253,7 +273,9 @@ export function HomeSections() {
       <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
         <div className="flex items-center gap-3">
           <Wrench className="size-5 text-[var(--dusty-rose)]" />
-          <h2 className="font-serif text-3xl sm:text-4xl">Popular Free Beauty Tools</h2>
+          <h2 className="font-serif text-3xl sm:text-4xl">
+            Popular Free Beauty Tools
+          </h2>
         </div>
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {featuredTools.map((tool) => (
@@ -262,7 +284,9 @@ export function HomeSections() {
               href={`/tools/${tool.slug}`}
               className="glass-panel rounded-2xl p-5 transition-colors duration-150 hover:border-[var(--dusty-rose)]"
             >
-              <h3 className="font-medium text-[var(--foreground)]">{tool.title}</h3>
+              <h3 className="font-medium text-[var(--foreground)]">
+                {tool.title}
+              </h3>
               <p className="mt-2 text-sm text-[var(--foreground-muted)] line-clamp-2">
                 {tool.description}
               </p>
@@ -282,7 +306,9 @@ export function HomeSections() {
         <div className="glass-panel mx-auto max-w-6xl rounded-3xl px-6 py-16 sm:px-10">
           <div className="flex items-center gap-3">
             <BookOpen className="size-5 text-[var(--dusty-rose)]" />
-            <h2 className="font-serif text-3xl sm:text-4xl">Trending Makeup Guides</h2>
+            <h2 className="font-serif text-3xl sm:text-4xl">
+              Trending Makeup Guides
+            </h2>
           </div>
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             {trendingGuides.map((g) => (
@@ -295,7 +321,9 @@ export function HomeSections() {
                   {g.category}, {g.readTimeMinutes} min read
                 </p>
                 <h3 className="mt-2 font-serif text-2xl">{g.title}</h3>
-                <p className="mt-2 text-sm text-[var(--foreground-muted)]">{g.excerpt}</p>
+                <p className="mt-2 text-sm text-[var(--foreground-muted)]">
+                  {g.excerpt}
+                </p>
               </Link>
             ))}
           </div>
@@ -304,7 +332,9 @@ export function HomeSections() {
 
       {/* Styles explore */}
       <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
-        <h2 className="font-serif text-3xl sm:text-4xl">Explore Makeup Styles</h2>
+        <h2 className="font-serif text-3xl sm:text-4xl">
+          Explore Makeup Styles
+        </h2>
         <div className="mt-8 flex flex-wrap gap-2">
           {makeupLooks.map((l) => (
             <Link
@@ -367,7 +397,11 @@ function LookSwatch({
     <div className="flex h-full flex-col justify-end p-4">
       <div className="flex gap-2">
         {tones.map((c) => (
-          <span key={c} className="h-8 w-8 rounded-full" style={{ background: c }} />
+          <span
+            key={c}
+            className="h-8 w-8 rounded-full"
+            style={{ background: c }}
+          />
         ))}
       </div>
       <p className="mt-3 text-xs text-[var(--foreground-muted)]">{title}</p>
