@@ -46,7 +46,7 @@ export default function AnalysisLibraryPage() {
         </p>
         <Link
           href="/analyze"
-          className="mt-8 inline-flex h-12 items-center justify-center bg-[var(--dusty-rose)] px-7 text-base font-medium text-white transition-colors hover:bg-[#b8757c]"
+          className="mt-8 inline-flex h-12 items-center justify-center bg-[var(--dusty-rose)] px-7 text-base font-medium text-[var(--on-accent)] transition-colors hover:bg-[var(--dusty-rose-hover)]"
         >
           Start analysis
         </Link>

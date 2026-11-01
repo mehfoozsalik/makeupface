@@ -39,6 +39,13 @@ export interface RoutineStep {
   placement?: string;
 }
 
+export interface ShadeSwatch {
+  area: string;
+  name: string;
+  hex: string;
+  why: string;
+}
+
 export interface MakeupAIResponse {
   summary: {
     title: string;
@@ -66,6 +73,8 @@ export interface MakeupAIResponse {
   commonMistakes: string[];
   productChecklist: string[];
   disclaimer: string;
+  /** Practical shade families for this face / undertone. */
+  shadeGuide?: ShadeSwatch[];
 }
 
 export interface SavedReport {

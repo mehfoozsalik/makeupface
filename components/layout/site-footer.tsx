@@ -35,7 +35,7 @@ const COLUMNS = [
 
 export function SiteFooter() {
   return (
-    <footer className="mt-auto border-t border-[var(--border)] bg-[var(--background-secondary)]">
+    <footer className="glass-nav relative z-10 mt-auto">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-4">
         <div>
           <BrandLogo size="lg" />

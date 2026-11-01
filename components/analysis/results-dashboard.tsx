@@ -4,9 +4,11 @@ import Link from "next/link";
 import { useRef, useState } from "react";
 import { Download, Printer, RotateCcw, Save } from "lucide-react";
 import { toast } from "sonner";
+import { FacePhotoMap } from "@/components/analysis/face-photo-map";
 import { Button } from "@/components/ui/button";
 import { Accordion } from "@/components/ui/accordion";
 import { PlacementDiagram } from "@/components/tutorials/placement-diagram";
+import { buildShadeGuide } from "@/lib/analysis/shade-palette";
 import { getRelatedGuides } from "@/lib/analysis/related-guides";
 import type { MakeupAIResponse } from "@/types/ai";
 import type { FaceAnalysisResult } from "@/types/face-analysis";
@@ -38,6 +40,7 @@ export function ResultsDashboard({
   analysis,
   preferences,
   recommendations,
+  imageSrc,
   onSave,
   onReset,
   className,
@@ -45,6 +48,7 @@ export function ResultsDashboard({
   analysis: FaceAnalysisResult;
   preferences: UserPreferences;
   recommendations: MakeupAIResponse;
+  imageSrc?: string | null;
   onSave: () => string | null;
   onReset: () => void;
   className?: string;
@@ -55,6 +59,11 @@ export function ResultsDashboard({
     analysis.faceShape.primary,
     preferences.style
   );
+  const shadeGuide =
+    recommendations.shadeGuide && recommendations.shadeGuide.length > 0
+      ? recommendations.shadeGuide
+      : buildShadeGuide(preferences, analysis);
+  const spots = analysis.landmarkSpots ?? [];
 
   const recEntries = Object.entries(recommendations.recommendations) as [
     string,
@@ -83,7 +92,10 @@ export function ResultsDashboard({
       const canvas = await html2canvas(el, {
         scale: 2,
         useCORS: true,
-        backgroundColor: "#faf8f5",
+        backgroundColor:
+          getComputedStyle(document.documentElement)
+            .getPropertyValue("--background")
+            .trim() || "#f6f2ea",
       });
       const img = canvas.toDataURL("image/png");
       const pdf = new jsPDF({ orientation: "p", unit: "mm", format: "a4" });
@@ -149,6 +161,56 @@ export function ResultsDashboard({
             {recommendations.summary.overallAdvice}
           </p>
         </header>
+
+        {imageSrc && spots.length > 0 && (
+          <section>
+            <h3 className="font-serif text-xl">Your photo map</h3>
+            <p className="mt-1 text-sm text-[var(--foreground-muted)]">
+              Feature spots from on-device landmarks, drawn over the selfie you
+              uploaded.
+            </p>
+            <div className="mt-4 max-w-md">
+              <FacePhotoMap imageSrc={imageSrc} spots={spots} />
+            </div>
+          </section>
+        )}
+
+        <section>
+          <h3 className="font-serif text-xl">Shade colors for you</h3>
+          <p className="mt-1 text-sm text-[var(--foreground-muted)]">
+            Practical shade families for foundation, contour, blush, eyes, and
+            lips based on your undertone and style. Hex values are educational
+            guides, not exact product SKUs.
+          </p>
+          <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {shadeGuide.map((swatch) => (
+              <li
+                key={`${swatch.area}-${swatch.hex}`}
+                className="flex gap-3 rounded-2xl border border-[var(--border)] bg-[var(--background)]/50 p-3"
+              >
+                <span
+                  className="size-12 shrink-0 rounded-full border border-[var(--border)] shadow-inner"
+                  style={{ backgroundColor: swatch.hex }}
+                  aria-hidden
+                />
+                <div className="min-w-0">
+                  <p className="text-xs font-medium uppercase tracking-[0.12em] text-[var(--dusty-rose)]">
+                    {swatch.area}
+                  </p>
+                  <p className="font-medium text-[var(--foreground)]">
+                    {swatch.name}
+                  </p>
+                  <p className="mt-0.5 font-mono text-[0.65rem] text-[var(--foreground-muted)]">
+                    {swatch.hex}
+                  </p>
+                  <p className="mt-1 text-xs leading-relaxed text-[var(--foreground-muted)]">
+                    {swatch.why}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
 
         <section className="grid gap-6 lg:grid-cols-2">
           <div className="space-y-4">

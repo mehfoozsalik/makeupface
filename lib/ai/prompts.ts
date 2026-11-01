@@ -88,6 +88,14 @@ Respond with JSON in this exact shape:
   "routine": [{ "step": number, "title": string, "instructions": string, "why": string, "products": string[], "tips": string[], "placement": string }],
   "commonMistakes": string[],
   "productChecklist": string[],
-  "disclaimer": string
-}`;
+  "disclaimer": string,
+  "shadeGuide": [{
+    "area": "Foundation" | "Contour" | "Blush" | "Eyeshadow" | "Lips",
+    "name": string,
+    "hex": "#RRGGBB approximate family color",
+    "why": string
+  }]
+}
+
+Include 5 shadeGuide entries with practical hex colors for foundation, contour, blush, eyeshadow, and lips based on undertone and style. Hex values are educational shade families, not exact product matches.`;
 }

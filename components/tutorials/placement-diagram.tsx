@@ -465,7 +465,7 @@ export function PlacementDiagram({
             className={cn(
               "border px-3 py-1.5 text-xs font-medium transition-[border-color,background-color,color] duration-150 ease-[cubic-bezier(0.23,1,0.32,1)]",
               selected === t
-                ? "border-[var(--dusty-rose)] bg-[var(--dusty-rose)] text-white"
+                ? "border-[var(--dusty-rose)] bg-[var(--dusty-rose)] text-[var(--on-accent)]"
                 : "border-[var(--border)] text-[var(--foreground-muted)] hover:border-[var(--dusty-rose)]/50"
             )}
           >

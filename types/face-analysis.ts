@@ -78,6 +78,14 @@ export interface PhotoQualityResult {
   issues: string[];
 }
 
+/** Normalized 0–1 landmark markers for report overlays. */
+export interface LandmarkSpot {
+  id: string;
+  label: string;
+  x: number;
+  y: number;
+}
+
 export interface FaceAnalysisResult {
   faceShape: ClassificationResult<FaceShape>;
   eyeShape: ClassificationResult<EyeShape>;
@@ -86,6 +94,8 @@ export interface FaceAnalysisResult {
   measurements: FaceMeasurements;
   quality: PhotoQualityResult;
   analyzedAt: string;
+  /** Key feature spots for photo overlays (normalized coords). */
+  landmarkSpots?: LandmarkSpot[];
 }
 
 export type AnalysisStep =

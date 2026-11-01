@@ -42,7 +42,7 @@ export function BrandLogo({
     >
       <span
         className={cn(
-          "font-sans font-medium uppercase text-foreground-muted",
+          "font-sans font-medium uppercase text-[var(--foreground-muted)]",
           s.top,
         )}
       >
@@ -50,11 +50,11 @@ export function BrandLogo({
       </span>
       <span
         className={cn(
-          "font-serif font-medium uppercase text-foreground",
+          "font-serif font-medium uppercase text-[var(--foreground)]",
           s.bottom,
         )}
       >
-        Face <span className="normal-case text-dusty-rose">Ai</span>
+        Face <span className="normal-case text-[var(--dusty-rose)]">Ai</span>
       </span>
     </span>
   );

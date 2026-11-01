@@ -14,8 +14,8 @@ export function AnalyzeCta({
     <aside
       className={
         compact
-          ? "border border-[var(--border)] bg-[var(--white)] p-6"
-          : "border border-[var(--border)] bg-[var(--white)] p-8 sm:p-10"
+          ? "glass-panel rounded-2xl p-6"
+          : "glass-panel rounded-3xl p-8 sm:p-10"
       }
     >
       <p className="text-xs font-medium uppercase tracking-[0.14em] text-[var(--dusty-rose)]">
@@ -27,7 +27,7 @@ export function AnalyzeCta({
       </p>
       <Link
         href="/analyze"
-        className="mt-6 inline-flex items-center gap-2 bg-[var(--dusty-rose)] px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-[#b8757c]"
+        className="glass-button mt-6 inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-medium text-[var(--on-accent)] transition-colors hover:bg-[var(--dusty-rose-hover)]"
       >
         Analyze my face
         <ArrowRight className="size-4" aria-hidden />

@@ -20,6 +20,13 @@ export const routineStepSchema = z.object({
   placement: z.string().optional(),
 });
 
+export const shadeSwatchSchema = z.object({
+  area: z.string(),
+  name: z.string(),
+  hex: z.string(),
+  why: z.string(),
+});
+
 export const makeupAIResponseSchema = z.object({
   summary: z.object({
     title: z.string(),
@@ -47,6 +54,7 @@ export const makeupAIResponseSchema = z.object({
   commonMistakes: z.array(z.string()),
   productChecklist: z.array(z.string()),
   disclaimer: z.string(),
+  shadeGuide: z.array(shadeSwatchSchema).optional(),
 });
 
 export const makeupAnalysisRequestSchema = z.object({

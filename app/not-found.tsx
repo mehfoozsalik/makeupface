@@ -29,7 +29,7 @@ export default function NotFound() {
         >
           Makeup hub
         </Link>
-        <Link href="/analyze" className="bg-[var(--dusty-rose)] px-5 py-2.5 text-sm font-medium text-white hover:bg-[#b8757c]">
+        <Link href="/analyze" className="bg-[var(--dusty-rose)] px-5 py-2.5 text-sm font-medium text-[var(--on-accent)] hover:bg-[var(--dusty-rose-hover)]">
           Analyze my face
         </Link>
       </div>

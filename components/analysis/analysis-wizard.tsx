@@ -53,6 +53,7 @@ export function AnalysisWizard() {
   const step = useAnalysisStore((s) => s.step);
   const setStep = useAnalysisStore((s) => s.setStep);
   const setImage = useAnalysisStore((s) => s.setImage);
+  const imageDataUrl = useAnalysisStore((s) => s.imageDataUrl);
   const analysis = useAnalysisStore((s) => s.analysis);
   const setAnalysis = useAnalysisStore((s) => s.setAnalysis);
   const preferences = useAnalysisStore((s) => s.preferences);
@@ -348,6 +349,7 @@ export function AnalysisWizard() {
             analysis={analysis}
             preferences={preferences}
             recommendations={recommendations}
+            imageSrc={upload.previewDataUrl || imageDataUrl}
             onSave={saveCurrentReport}
             onReset={handleReset}
           />
@@ -360,6 +362,7 @@ export function AnalysisWizard() {
     busy,
     handlePreferences,
     handleReset,
+    imageDataUrl,
     makeup.isLoading,
     preferences,
     qualityPreview,

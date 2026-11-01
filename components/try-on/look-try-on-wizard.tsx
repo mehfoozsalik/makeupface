@@ -342,7 +342,7 @@ export function LookTryOnWizard() {
                   className={cn(
                     "rounded-full border px-4 py-2 text-sm capitalize",
                     experience === v
-                      ? "border-[var(--dusty-rose)] bg-[var(--dusty-rose)] text-white"
+                      ? "border-[var(--dusty-rose)] bg-[var(--dusty-rose)] text-[var(--on-accent)]"
                       : "border-[var(--border)] text-[var(--foreground-muted)]"
                   )}
                 >
@@ -362,7 +362,7 @@ export function LookTryOnWizard() {
                   className={cn(
                     "rounded-full border px-4 py-2 text-sm capitalize",
                     undertone === v
-                      ? "border-[var(--dusty-rose)] bg-[var(--dusty-rose)] text-white"
+                      ? "border-[var(--dusty-rose)] bg-[var(--dusty-rose)] text-[var(--on-accent)]"
                       : "border-[var(--border)] text-[var(--foreground-muted)]"
                   )}
                 >

@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import {
   ChevronDown,
@@ -36,6 +37,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { BrandLogo } from "@/components/layout/brand-logo";
+import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { beautyTools } from "@/data/tools";
 import { cn } from "@/lib/utils/cn";
 
@@ -88,22 +90,73 @@ function linkActive(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
-function ToolsDropdown({
-  onNavigate,
-}: {
-  onNavigate?: () => void;
-}) {
-  const [open, setOpen] = useState(false);
-  const reduce = useReducedMotion();
-  const panelId = useId();
-  const rootRef = useRef<HTMLDivElement>(null);
+function ToolsDropdown({ onNavigate }: { onNavigate?: () => void }) {
   const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+  const [coords, setCoords] = useState({ top: 0, right: 0 });
+  const [menuPath, setMenuPath] = useState(pathname);
+  const panelId = useId();
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const toolsActive = pathname.startsWith("/tools");
+  const canPortal = typeof document !== "undefined";
+
+  // Close on route change during render (avoid setState-in-effect lint).
+  if (pathname !== menuPath) {
+    setMenuPath(pathname);
+    if (open) setOpen(false);
+  }
+
+  const clearCloseTimer = () => {
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+  };
+
+  const scheduleClose = () => {
+    clearCloseTimer();
+    closeTimer.current = setTimeout(() => setOpen(false), 120);
+  };
+
+  const openMenu = () => {
+    clearCloseTimer();
+    setOpen(true);
+  };
+
+  const updateCoords = () => {
+    const el = triggerRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    setCoords({
+      top: rect.bottom + 8,
+      right: Math.max(12, window.innerWidth - rect.right),
+    });
+  };
+
+  useEffect(() => () => clearCloseTimer(), []);
+
+  useLayoutEffect(() => {
+    if (!open) return;
+    updateCoords();
+    const onWin = () => updateCoords();
+    window.addEventListener("resize", onWin);
+    window.addEventListener("scroll", onWin, true);
+    return () => {
+      window.removeEventListener("resize", onWin);
+      window.removeEventListener("scroll", onWin, true);
+    };
+  }, [open]);
 
   useEffect(() => {
     if (!open) return;
     const onPointer = (e: MouseEvent) => {
-      if (!rootRef.current?.contains(e.target as Node)) setOpen(false);
+      const t = e.target as Node;
+      if (triggerRef.current?.contains(t) || panelRef.current?.contains(t)) {
+        return;
+      }
+      setOpen(false);
     };
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setOpen(false);
@@ -116,18 +169,88 @@ function ToolsDropdown({
     };
   }, [open]);
 
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
+  const panel =
+    canPortal &&
+    open &&
+    createPortal(
+      <div
+        ref={panelRef}
+        id={panelId}
+        role="menu"
+        className="fixed z-[80] w-[min(92vw,560px)] rounded-2xl border border-white/50 bg-white/45 p-4 shadow-[0_16px_48px_rgba(28,25,22,0.16)] backdrop-blur-xl dark:border-white/10 dark:bg-black/45 dark:shadow-[0_16px_48px_rgba(0,0,0,0.5)]"
+        style={{
+          top: coords.top,
+          right: coords.right,
+          WebkitBackdropFilter: "blur(24px) saturate(1.4)",
+          backdropFilter: "blur(24px) saturate(1.4)",
+        }}
+        onMouseEnter={openMenu}
+        onMouseLeave={scheduleClose}
+      >
+        <div className="mb-3 flex items-center justify-between gap-3 px-1">
+          <p className="text-xs font-medium uppercase tracking-[0.14em] text-[var(--foreground-muted)]">
+            Beauty tools
+          </p>
+          <Link
+            href="/tools"
+            className="text-xs text-[var(--dusty-rose)] hover:underline"
+            onClick={() => {
+              setOpen(false);
+              onNavigate?.();
+            }}
+          >
+            View all
+          </Link>
+        </div>
+
+        <div className="grid max-h-[min(70vh,420px)] gap-4 overflow-y-auto sm:grid-cols-2">
+          {CATEGORY_ORDER.map((cat) => {
+            const items = beautyTools.filter((t) => t.category === cat);
+            if (items.length === 0) return null;
+            return (
+              <div key={cat}>
+                <p className="mb-1.5 px-2 text-[0.65rem] font-medium uppercase tracking-[0.12em] text-[var(--champagne)]">
+                  {CATEGORY_LABEL[cat]}
+                </p>
+                <ul className="space-y-0.5">
+                  {items.map((tool) => {
+                    const Icon = TOOL_ICONS[tool.slug] ?? Sparkles;
+                    return (
+                      <li key={tool.slug}>
+                        <Link
+                          href={`/tools/${tool.slug}`}
+                          role="menuitem"
+                          className="flex items-center gap-2.5 rounded-lg px-2 py-2 text-sm text-[var(--foreground-muted)] transition-colors duration-150 hover:bg-[var(--background-secondary)]/80 hover:text-[var(--foreground)]"
+                          onClick={() => {
+                            setOpen(false);
+                            onNavigate?.();
+                          }}
+                        >
+                          <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-[var(--background-secondary)]/80 text-[var(--dusty-rose)]">
+                            <Icon
+                              className="size-3.5"
+                              strokeWidth={1.75}
+                              aria-hidden
+                            />
+                          </span>
+                          <span className="leading-snug">{tool.title}</span>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            );
+          })}
+        </div>
+      </div>,
+      document.body
+    );
 
   return (
-    <div
-      ref={rootRef}
-      className="relative"
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
-    >
+    <div className="relative">
       <button
+        ref={triggerRef}
         type="button"
         aria-expanded={open}
         aria-controls={panelId}
@@ -137,7 +260,18 @@ function ToolsDropdown({
             ? "text-[var(--foreground)]"
             : "text-[var(--foreground-muted)] hover:text-[var(--foreground)]"
         )}
-        onClick={() => setOpen((v) => !v)}
+        onClick={() => {
+          if (open) setOpen(false);
+          else {
+            updateCoords();
+            openMenu();
+          }
+        }}
+        onMouseEnter={() => {
+          updateCoords();
+          openMenu();
+        }}
+        onMouseLeave={scheduleClose}
       >
         Tools
         <ChevronDown
@@ -147,75 +281,7 @@ function ToolsDropdown({
           )}
         />
       </button>
-
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            id={panelId}
-            role="menu"
-            initial={reduce ? false : { opacity: 0, transform: "translateY(6px)" }}
-            animate={{ opacity: 1, transform: "translateY(0px)" }}
-            exit={reduce ? undefined : { opacity: 0, transform: "translateY(4px)" }}
-            transition={{ duration: 0.18, ease: [0.23, 1, 0.32, 1] }}
-            className="absolute right-0 top-full z-50 pt-2"
-          >
-            <div className="w-[min(92vw,560px)] rounded-xl border border-[var(--border)] bg-[var(--white)] p-4 shadow-[0_12px_40px_rgba(41,37,34,0.08)]">
-              <div className="mb-3 flex items-center justify-between gap-3 px-1">
-                <p className="text-xs font-medium uppercase tracking-[0.14em] text-[var(--foreground-muted)]">
-                  Beauty tools
-                </p>
-                <Link
-                  href="/tools"
-                  className="text-xs text-[var(--dusty-rose)] hover:underline"
-                  onClick={() => {
-                    setOpen(false);
-                    onNavigate?.();
-                  }}
-                >
-                  View all
-                </Link>
-              </div>
-
-              <div className="grid max-h-[min(70vh,420px)] gap-4 overflow-y-auto sm:grid-cols-2">
-                {CATEGORY_ORDER.map((cat) => {
-                  const items = beautyTools.filter((t) => t.category === cat);
-                  if (items.length === 0) return null;
-                  return (
-                    <div key={cat}>
-                      <p className="mb-1.5 px-2 text-[0.65rem] font-medium uppercase tracking-[0.12em] text-[var(--champagne)]">
-                        {CATEGORY_LABEL[cat]}
-                      </p>
-                      <ul className="space-y-0.5">
-                        {items.map((tool) => {
-                          const Icon = TOOL_ICONS[tool.slug] ?? Sparkles;
-                          return (
-                            <li key={tool.slug}>
-                              <Link
-                                href={`/tools/${tool.slug}`}
-                                role="menuitem"
-                                className="flex items-center gap-2.5 rounded-lg px-2 py-2 text-sm text-[var(--foreground-muted)] transition-colors duration-150 hover:bg-[var(--background-secondary)] hover:text-[var(--foreground)]"
-                                onClick={() => {
-                                  setOpen(false);
-                                  onNavigate?.();
-                                }}
-                              >
-                                <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-[var(--background-secondary)] text-[var(--dusty-rose)]">
-                                  <Icon className="size-3.5" strokeWidth={1.75} aria-hidden />
-                                </span>
-                                <span className="leading-snug">{tool.title}</span>
-                              </Link>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {panel}
     </div>
   );
 }
@@ -224,15 +290,17 @@ export function SiteHeader() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileToolsOpen, setMobileToolsOpen] = useState(false);
+  const [navPath, setNavPath] = useState(pathname);
   const reduce = useReducedMotion();
 
-  useEffect(() => {
-    setMobileOpen(false);
-    setMobileToolsOpen(false);
-  }, [pathname]);
+  if (pathname !== navPath) {
+    setNavPath(pathname);
+    if (mobileOpen) setMobileOpen(false);
+    if (mobileToolsOpen) setMobileToolsOpen(false);
+  }
 
   return (
-    <header className="sticky top-0 z-40 border-b border-[var(--border)] bg-[var(--background)]/95 backdrop-blur-sm">
+    <header className="fixed top-4 left-1/2 z-50 w-[min(100%-1.5rem,72rem)] -translate-x-1/2 rounded-2xl border border-[var(--border)] bg-background/20 backdrop-blur-sm">
       <div className="mx-auto flex h-16 max-w-6xl items-center gap-6 px-4 sm:px-6">
         <BrandLogo size="sm" />
 
@@ -248,30 +316,38 @@ export function SiteHeader() {
                 "px-3 py-2 text-sm transition-colors duration-150",
                 linkActive(pathname, item.href)
                   ? "text-[var(--foreground)]"
-                  : "text-[var(--foreground-muted)] hover:text-[var(--foreground)]"
+                  : "text-[var(--foreground-muted)] hover:text-[var(--foreground)]",
               )}
             >
               {item.label}
             </Link>
           ))}
           <ToolsDropdown />
+          <ThemeToggle className="ml-1" />
           <Link
             href="/analyze"
-            className="ml-2 inline-flex h-9 items-center rounded-full bg-[var(--dusty-rose)] px-5 text-xs font-medium tracking-wide text-white transition-colors duration-150 hover:bg-[#b8757c]"
+            className="glass-button ml-1 inline-flex h-9 items-center rounded-full px-5 text-xs font-medium tracking-wide text-[var(--on-accent)] transition-colors duration-150 hover:bg-[var(--dusty-rose-hover)]"
           >
             Analyze My Face
           </Link>
         </nav>
 
-        <button
-          type="button"
-          className="ml-auto inline-flex size-10 items-center justify-center text-[var(--foreground)] lg:hidden"
-          aria-label={mobileOpen ? "Close menu" : "Open menu"}
-          aria-expanded={mobileOpen}
-          onClick={() => setMobileOpen((v) => !v)}
-        >
-          {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
-        </button>
+        <div className="ml-auto flex items-center gap-1 lg:hidden">
+          <ThemeToggle />
+          <button
+            type="button"
+            className="inline-flex size-10 items-center justify-center text-foreground"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
+            onClick={() => setMobileOpen((v) => !v)}
+          >
+            {mobileOpen ? (
+              <X className="size-5" />
+            ) : (
+              <Menu className="size-5" />
+            )}
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>
@@ -281,7 +357,7 @@ export function SiteHeader() {
             animate={{ height: "auto", opacity: 1 }}
             exit={reduce ? undefined : { height: 0, opacity: 0 }}
             transition={{ duration: 0.22, ease: [0.32, 0.72, 0, 1] }}
-            className="overflow-hidden border-t border-[var(--border)] bg-[var(--background)] lg:hidden"
+            className="overflow-hidden border-t border-border bg-background lg:hidden"
           >
             <nav className="flex flex-col px-4 py-3" aria-label="Mobile">
               {NAV.map((item) => (
@@ -289,10 +365,10 @@ export function SiteHeader() {
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "border-b border-[var(--border)]/60 py-3.5 text-sm",
+                    "border-b border-border/60 py-3.5 text-sm",
                     linkActive(pathname, item.href)
-                      ? "text-[var(--foreground)]"
-                      : "text-[var(--foreground-muted)]"
+                      ? "text-foreground"
+                      : "text-foreground-muted",
                   )}
                   onClick={() => setMobileOpen(false)}
                 >
@@ -310,7 +386,7 @@ export function SiteHeader() {
                 <ChevronDown
                   className={cn(
                     "size-4 text-[var(--foreground-muted)] transition-transform duration-150",
-                    mobileToolsOpen && "rotate-180"
+                    mobileToolsOpen && "rotate-180",
                   )}
                 />
               </button>
@@ -322,7 +398,7 @@ export function SiteHeader() {
                     animate={{ height: "auto", opacity: 1 }}
                     exit={reduce ? undefined : { height: 0, opacity: 0 }}
                     transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
-                    className="overflow-hidden border-b border-[var(--border)]/60"
+                    className="overflow-hidden border-b bg-background/20 border-[var(--border)]/60"
                   >
                     <ul className="max-h-64 space-y-0.5 overflow-y-auto py-2">
                       <li>
@@ -347,7 +423,11 @@ export function SiteHeader() {
                               onClick={() => setMobileOpen(false)}
                             >
                               <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-[var(--background-secondary)] text-[var(--dusty-rose)]">
-                                <Icon className="size-3.5" strokeWidth={1.75} aria-hidden />
+                                <Icon
+                                  className="size-3.5"
+                                  strokeWidth={1.75}
+                                  aria-hidden
+                                />
                               </span>
                               {tool.title}
                             </Link>
@@ -361,7 +441,7 @@ export function SiteHeader() {
 
               <Link
                 href="/analyze"
-                className="mt-3 rounded-full bg-[var(--dusty-rose)] py-3 text-center text-sm font-medium text-white"
+                className="glass-button mt-3 rounded-full py-3 text-center text-sm font-medium text-[var(--on-accent)] hover:bg-[var(--dusty-rose-hover)]"
                 onClick={() => setMobileOpen(false)}
               >
                 Analyze My Face

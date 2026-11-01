@@ -26,7 +26,7 @@ export function BlogPostCard({
               priority
             />
           ) : null}
-          <span className="absolute left-4 top-4 bg-[var(--dusty-rose)] px-2.5 py-1 text-[0.65rem] font-medium uppercase tracking-[0.14em] text-white">
+          <span className="absolute left-4 top-4 bg-[var(--dusty-rose)] px-2.5 py-1 text-[0.65rem] font-medium uppercase tracking-[0.14em] text-[var(--on-accent)]">
             Latest
           </span>
         </div>

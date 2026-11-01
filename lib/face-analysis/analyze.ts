@@ -8,6 +8,7 @@ import {
   classifyEyebrowShape,
   classifyLipShape,
 } from "./classify-features";
+import { buildLandmarkSpots } from "./landmark-spots";
 import { computeMeasurements } from "./measurements";
 import { assessPhotoQuality } from "./quality";
 
@@ -40,5 +41,6 @@ export function analyzeFaceFromLandmarks(
     measurements,
     quality,
     analyzedAt: new Date().toISOString(),
+    landmarkSpots: buildLandmarkSpots(landmarks),
   };
 }
