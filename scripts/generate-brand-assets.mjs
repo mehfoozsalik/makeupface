@@ -52,16 +52,17 @@ function pngsToIco(pngs) {
 }
 
 /** Face-focused crop: drop bottom wordmark band, then square cover. */
-async function logoOnlyBuffer(size) {
+async function logoOnlyBuffer(size, { rgba = true } = {}) {
   const meta = await sharp(sourceIcon).metadata();
   const w = meta.width ?? 512;
   const h = meta.height ?? 512;
   const cropH = Math.floor(h * 0.64);
-  return sharp(sourceIcon)
+  let pipeline = sharp(sourceIcon)
     .extract({ left: 0, top: 0, width: w, height: cropH })
-    .resize(size, size, { fit: "cover", position: "centre" })
-    .png({ compressionLevel: 9 })
-    .toBuffer();
+    .resize(size, size, { fit: "cover", position: "centre" });
+  // Next.js app/favicon.ico decoder requires RGBA PNG frames inside the ICO.
+  if (rgba) pipeline = pipeline.ensureAlpha();
+  return pipeline.png({ compressionLevel: 9 }).toBuffer();
 }
 
 async function main() {
@@ -80,10 +81,15 @@ async function main() {
   await fs.writeFile(path.join(outIcons, "icon-48.png"), mark48);
   await fs.writeFile(path.join(outPublic, "apple-touch-icon.png"), mark180);
 
+  // ICO must embed RGBA PNGs. Keep favicon only in public/ — app/favicon.ico
+  // is decoded by Next at build time and fails on non-RGBA frames.
   const ico = pngsToIco([mark16, mark32, mark48]);
   await fs.writeFile(path.join(outPublic, "favicon.ico"), ico);
-  // Next.js app/ favicon convention (static file, no image pipeline)
-  await fs.writeFile(path.join(root, "app", "favicon.ico"), ico);
+  try {
+    await fs.unlink(path.join(root, "app", "favicon.ico"));
+  } catch {
+    /* already absent */
+  }
 
   // Do not write app/icon.png or app/apple-icon.png — those metadata image
   // routes were returning 500 in production. Prefer public/ static files + metadata.icons.
@@ -121,7 +127,6 @@ async function main() {
   console.log("Generated:");
   console.log("  public/favicon.ico, logo.png, apple-touch-icon.png, og-default.jpg");
   console.log("  public/icons/icon-{48,192,512}.png");
-  console.log("  app/favicon.ico");
 }
 
 main().catch((err) => {
