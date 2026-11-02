@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "blog:generate": "tsx scripts/generate-daily-blog.ts",
-    "blog:generate:force": "tsx scripts/generate-daily-blog.ts --force"
+    "blog:generate:force": "tsx scripts/generate-daily-blog.ts --force",
+    "brand:assets": "node scripts/generate-brand-assets.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^6.0.2",

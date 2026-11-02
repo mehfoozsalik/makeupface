@@ -8,6 +8,7 @@ import { ThemedToaster } from "@/components/theme/themed-toaster";
 import {
   APP_NAME,
   DEFAULT_DESCRIPTION,
+  DEFAULT_KEYWORDS,
   absoluteUrl,
 } from "@/lib/seo/metadata";
 import "./globals.css";
@@ -31,13 +32,32 @@ export const metadata: Metadata = {
     template: `%s | ${APP_NAME}`,
   },
   description: DEFAULT_DESCRIPTION,
+  keywords: DEFAULT_KEYWORDS,
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/icons/icon-48.png", sizes: "48x48", type: "image/png" },
+      { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icons/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
   openGraph: {
     siteName: APP_NAME,
     type: "website",
     locale: "en_US",
+    images: [
+      {
+        url: "/og-default.jpg",
+        width: 1200,
+        height: 630,
+        alt: `${APP_NAME}: Discover the makeup that truly suits you`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
+    images: ["/og-default.jpg"],
   },
   robots: { index: true, follow: true },
 };
@@ -79,6 +99,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                     "@type": "Organization",
                     name: APP_NAME,
                     url: absoluteUrl("/"),
+                    logo: absoluteUrl("/logo.png"),
                   },
                   {
                     "@type": "WebApplication",
@@ -92,6 +113,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                     },
                     description: DEFAULT_DESCRIPTION,
                     url: absoluteUrl("/analyze"),
+                    image: absoluteUrl("/logo.png"),
                   },
                 ],
               }),

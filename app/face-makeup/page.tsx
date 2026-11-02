@@ -5,6 +5,7 @@ import { Accordion } from "@/components/ui/accordion";
 import { guides } from "@/data/guides";
 import { beautyTools } from "@/data/tools";
 import { JsonLd, faqJsonLd } from "@/components/seo/json-ld";
+import { homepageFaqs } from "@/data/faqs";
 import { createMetadata } from "@/lib/seo/metadata";
 
 export const metadata = createMetadata({
@@ -15,6 +16,9 @@ export const metadata = createMetadata({
 });
 
 const faceFaqs = [
+  homepageFaqs.find((f) => f.question === "What is face makeup?")!,
+  homepageFaqs.find((f) => f.question === "How to apply foundation on face?")!,
+  homepageFaqs.find((f) => f.question === "What are some good face makeup products?")!,
   {
     question: "Why does foundation look gray on my skin?",
     answer:

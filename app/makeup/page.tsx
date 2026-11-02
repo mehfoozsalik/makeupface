@@ -4,27 +4,28 @@ import { AnalyzeCta } from "@/components/content/analyze-cta";
 import { MakeupHubBlog } from "@/components/makeup/hub-blog";
 import { Accordion } from "@/components/ui/accordion";
 import { Breadcrumbs } from "@/components/seo/breadcrumbs";
+import { JsonLd, faqJsonLd } from "@/components/seo/json-ld";
 import { homepageFaqs } from "@/data/faqs";
 import { createMetadata } from "@/lib/seo/metadata";
 
 export const metadata = createMetadata({
   title: "Makeup Hub for Eyes, Lips and Face",
   description:
-    "Fresh AI written makeup guides each day, with Unsplash photos and tips you can take to the mirror. Face, eyes, lips, and looks.",
+    "Makeup eyes lips face guides updated often—tips for eye, lip, and face routines you can take to the mirror, plus AI analysis.",
   path: "/makeup",
 });
 
+function faqByQuestion(q: string) {
+  return homepageFaqs.find((f) => f.question === q)!;
+}
+
 const hubFaqs = [
-  homepageFaqs[6] ?? {
-    question: "Where should a beginner start?",
-    answer:
-      "Start with skin prep and a light base, then brows and a lip tint. Add eye makeup once the face looks even.",
-  },
-  homepageFaqs[4] ?? {
-    question: "What is the difference between undertone and skin depth?",
-    answer:
-      "Depth is how light or deep skin appears. Undertone is the hue beneath: warm, cool, or neutral.",
-  },
+  faqByQuestion("What is face makeup?"),
+  faqByQuestion("What are the 7 steps of a basic makeup routine?"),
+  faqByQuestion("What makeup should I apply first?"),
+  faqByQuestion("Which makeup is best for daily use?"),
+  faqByQuestion("How to apply makeup for a natural look?"),
+  faqByQuestion("I'm a beginner. Where should I start?"),
   {
     question: "Should I start with face, eyes, or lips?",
     answer:
@@ -35,6 +36,7 @@ const hubFaqs = [
 export default function MakeupHubPage() {
   return (
     <article className="pb-20">
+      <JsonLd data={faqJsonLd(hubFaqs)} />
       <header className="border-b border-[var(--border)] bg-[var(--background-secondary)]/50">
         <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
           <Breadcrumbs
@@ -42,7 +44,7 @@ export default function MakeupHubPage() {
             className="mb-6"
           />
           <p className="text-xs font-medium uppercase tracking-[0.18em] text-[var(--dusty-rose)]">
-            From the beauty desk
+            Makeup eyes lips face
           </p>
           <h1 className="mt-3 font-serif text-4xl text-[var(--foreground)] sm:text-5xl md:text-6xl">
             Makeup Hub

@@ -4,6 +4,22 @@ const APP_NAME = "MakeUp Face Ai";
 const DEFAULT_DESCRIPTION =
   "Upload a selfie, learn your face shape and features, and get makeup recommendations with placement maps and tutorials you can use at home.";
 
+/** Primary SEO keyword variants for makeup eyes / lips / face discovery. */
+export const DEFAULT_KEYWORDS = [
+  "makeup eyes lips face",
+  "makeup eye lip face",
+  "makeup eyes lip face",
+  "makeup eye lips face",
+  "AI makeup",
+  "face shape makeup",
+  "makeup tutorial",
+  "natural makeup",
+  "everyday makeup",
+  "foundation shade",
+  "blush placement",
+  "MakeUp Face Ai",
+];
+
 export function absoluteUrl(path = "/"): string {
   const base = process.env.NEXT_PUBLIC_APP_URL || "https://makeupface.app";
   return new URL(path, base).toString();
@@ -15,12 +31,14 @@ export function createMetadata({
   path = "/",
   image,
   noIndex = false,
+  keywords = DEFAULT_KEYWORDS,
 }: {
   title: string;
   description?: string;
   path?: string;
   image?: string;
   noIndex?: boolean;
+  keywords?: string[];
 }): Metadata {
   const url = absoluteUrl(path);
   const ogImage = image ? absoluteUrl(image) : absoluteUrl("/og-default.jpg");
@@ -28,6 +46,7 @@ export function createMetadata({
   return {
     title,
     description,
+    keywords,
     metadataBase: new URL(absoluteUrl("/")),
     alternates: { canonical: url },
     openGraph: {
