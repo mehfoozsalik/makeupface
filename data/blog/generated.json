@@ -1,6 +1,408 @@
 {
   "posts": [
     {
+      "slug": "photograph-face-ai-makeup-tools-correctly",
+      "title": "How to Photograph Your Face So AI Makeup Tools Read You Correctly",
+      "excerpt": "Your selfie is the input. If the lighting, angle, or filter is off, the AI makeup try-on will be off too. Here's how to take a clean photo that gives you useful results, plus free tools to practice.",
+      "category": "Basics",
+      "date": "2026-11-03",
+      "readMinutes": 10,
+      "content": [
+        "Why Your Selfie Is the Whole Ballgame",
+        "I've watched people try virtual makeup for years, and the same thing happens almost every time. Someone uploads a photo with a window blazing behind them, the app puts blush on their forehead, and they blame the tool. But the tool didn't fail. The photo did.",
+        "AI makeup tools work by finding your facial landmarks first: the corners of your eyes, the bridge of your nose, the edges of your lips. If those points are wrong, everything that follows is wrong. Lighting, angle, hair, and filters all change what the AI sees. Fix the photo and you fix the result.",
+        "Think of it like this: a makeup artist can't match your foundation in a dark club. An AI can't either. Give it a clean, evenly lit, front-facing shot and it can actually do its job.",
+        "Lighting: Soft, Even, and In Front of You",
+        "The best light for any face analysis is soft and even. Stand facing a window during the day. Not with the window behind you. Facing it. That gives you diffused light across your whole face with no harsh shadows.",
+        "If you don't have good natural light, use a ring light or a lamp with a diffuser. Put it slightly above eye level and directly in front. Avoid overhead lights that cast shadows under your eyes and nose. Those shadows can confuse landmark detection and make contour or blush placement look off.",
+        "Also watch for mixed color temperatures. A warm lamp on one side and cool window light on the other will tint your skin differently on each side. The AI may read that as uneven tone and adjust makeup in ways you didn't intend. Turn off the lamp or close the curtain. One light source is easier for both you and the algorithm.",
+        "Angle: Straight On, Camera at Eye Level",
+        "The classic selfie angle, chin down and camera high, is great for Instagram. It's terrible for AI makeup analysis. That angle distorts proportions, hides your jawline, and makes your forehead look larger. The AI then places contour and highlight based on a face shape you don't actually have.",
+        "For analysis and try-on, hold the camera at eye level. Look straight into the lens. Keep your head level, not tilted. Your whole face should be visible from hairline to chin, and from ear to ear.",
+        "A tripod or a stack of books helps. Prop your phone, set a timer, and step back. You want a little space between you and the camera so the lens doesn't widen your nose. Most phone front cameras are wide angle, and up close they exaggerate the center of your face. Arm's length or a bit more is usually right.",
+        "Hair Off the Face and a Clean Background",
+        "Hair is the number one thing I see blocking good AI reads. A few strands across the cheek can look like a shadow or a contour line. Bangs covering your forehead hide the top landmarks. Tie your hair back, or at least pin it away from your cheeks and forehead.",
+        "Background matters less, but a plain wall helps. A busy background with strong patterns or bright objects can pull the AI's attention or create edge artifacts around your face. Stand a few feet from a plain wall. Avoid standing right against it so you don't cast a shadow.",
+        "If you wear glasses, take them off for the photo unless you're specifically testing eye makeup with glasses. Frames can block eye corners and confuse eye makeup placement. Same goes for heavy jewelry near the face.",
+        "No Heavy Filters Before Analysis or Try-On",
+        "This is the big one. Beauty filters smooth skin, change eye size, slim the jaw, and alter skin tone. If you upload a filtered photo, the AI is analyzing a face that isn't yours. The makeup placement will be based on edited features. Then when you try the look in real life, it won't match.",
+        "Turn off all filters in your camera app. That includes the automatic ones some phones apply without telling you. Check your settings. If your photo looks smoother than what you see in the mirror, it's filtered.",
+        "You also want a neutral expression. Don't smile too wide or scrunch your eyes. A relaxed, closed-mouth expression keeps your features in their natural position. That gives the AI the most accurate landmarks to work from.",
+        "If you've been getting weird results and you're not sure why, start with a clean photo. There's a free guide on [first photo setup for face tools](https://rizzassistgo.com/blog/first-photo-setup-face-tools/) that walks through the basics step by step. It's a good sanity check before you blame the app.",
+        "Eye and Face Landmark Accuracy: Why Small Things Matter",
+        "Eye makeup is where bad photos show up fastest. If the AI misreads your eye corners, winged liner will point the wrong way. If it misreads your lid space, shadow will sit too high or too low. That's why eye-level, straight-on shots matter so much.",
+        "You also want your eyes open and looking at the camera. Not down at your phone screen. Looking down changes the shape of your lid and can make the AI place crease color in the wrong spot.",
+        "For a deeper walkthrough on getting eye and face landmarks right, there's a [photo setup guide for face and eye AI tools](https://rizzassistgo.com/blog/photo-setup-guide-face-eye-ai-tools/) that covers distance, focus, and expression. It's worth a read if you plan to test eye looks often.",
+        "One more tip: clean your lens. A smudged phone camera adds haze and softens edges. The AI has less to work with. A quick wipe with a microfiber cloth makes a real difference.",
+        "A Simple Photo Setup You Can Repeat",
+        "Here's a routine I give students. It takes two minutes and saves a lot of frustration.",
+        "Step one: find a spot facing a window or a soft lamp. Step two: tie your hair back and take off glasses. Step three: prop your phone at eye level, set a timer, and step back to arm's length. Step four: turn off all filters, relax your face, and take three shots. Step five: pick the one where your whole face is evenly lit and in focus.",
+        "Save that photo. Use it as your baseline for every AI makeup test. When you change your hair or lighting, take a new baseline. Consistency is what makes your results comparable.",
+        "Practice With a Free Face Shape Tool",
+        "Once you have a clean front-facing photo, a good way to check that the AI is reading you correctly is to run it through a simple analysis tool. The [face shape detector](https://rizzassistgo.com/face-shape-detector/) on Rizz Assist is free and gives you a quick read on your face shape. If the result matches what you know about your face, your photo is probably clean. If it's way off, your lighting or angle needs work.",
+        "This is also a low-pressure way to practice your photo setup. You're not testing a full makeup look. You're just checking that the input is good. Once the face shape read looks right, you can move on to try-on with confidence.",
+        "Common Mistakes and How to Fix Them",
+        "Here are the issues I see most often, and the fixes.",
+        "Backlighting: your face is dark and the window is bright. Fix: turn around and face the window.",
+        "Tilted head: the AI reads a different jawline. Fix: level your chin and look straight ahead.",
+        "Hair across the cheek: reads as a shadow. Fix: pin it back.",
+        "Beauty filter: changes your features. Fix: turn it off in camera settings.",
+        "Too close to the lens: exaggerates your nose and center face. Fix: step back and use a timer.",
+        "Looking down at the screen: changes your eye shape. Fix: look at the lens, not the preview.",
+        "Putting It All Together",
+        "AI makeup tools are only as good as the photo you feed them. Soft even light, a straight-on angle at eye level, hair off your face, and no filters will get you results that actually translate to real life. It's not about taking a prettier selfie. It's about taking an honest one.",
+        "Take five minutes to set up your baseline photo today. Then test one look. If it lands where you expect, you know your input is solid. If it doesn't, go back to the checklist. Nine times out of ten, the fix is in the photo, not the tool."
+      ],
+      "author": "MakeUp Face Ai",
+      "coverImage": "https://images.unsplash.com/photo-1746850726515-0d96cef963bf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTA2NTU5fDB8MXxzZWFyY2h8Nnx8d29tYW4lMjBob2xkaW5nJTIwcGhvbmUlMjBzZWxmaWUlMjBzb2Z0JTIwZGF5bGlnaHR8ZW58MXwwfHx8MTc5MzcyMDY0OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Why Your Selfie Is the Whole Ballgame"
+        },
+        {
+          "type": "paragraph",
+          "text": "I've watched people try virtual makeup for years, and the same thing happens almost every time. Someone uploads a photo with a window blazing behind them, the app puts blush on their forehead, and they blame the tool. But the tool didn't fail. The photo did."
+        },
+        {
+          "type": "paragraph",
+          "text": "AI makeup tools work by finding your facial landmarks first: the corners of your eyes, the bridge of your nose, the edges of your lips. If those points are wrong, everything that follows is wrong. Lighting, angle, hair, and filters all change what the AI sees. Fix the photo and you fix the result."
+        },
+        {
+          "type": "paragraph",
+          "text": "Think of it like this: a makeup artist can't match your foundation in a dark club. An AI can't either. Give it a clean, evenly lit, front-facing shot and it can actually do its job."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Good photo: even light, face forward, hair away, no filter.",
+            "Bad photo: backlit, tilted, hair covering cheeks, beauty filter on."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Lighting: Soft, Even, and In Front of You"
+        },
+        {
+          "type": "paragraph",
+          "text": "The best light for any face analysis is soft and even. Stand facing a window during the day. Not with the window behind you. Facing it. That gives you diffused light across your whole face with no harsh shadows."
+        },
+        {
+          "type": "paragraph",
+          "text": "If you don't have good natural light, use a ring light or a lamp with a diffuser. Put it slightly above eye level and directly in front. Avoid overhead lights that cast shadows under your eyes and nose. Those shadows can confuse landmark detection and make contour or blush placement look off."
+        },
+        {
+          "type": "paragraph",
+          "text": "Also watch for mixed color temperatures. A warm lamp on one side and cool window light on the other will tint your skin differently on each side. The AI may read that as uneven tone and adjust makeup in ways you didn't intend. Turn off the lamp or close the curtain. One light source is easier for both you and the algorithm."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Face a window, don't sit with it behind you.",
+            "Use one soft light source in front, slightly above eye level.",
+            "Avoid mixed warm and cool light on the same face."
+          ]
+        },
+        {
+          "type": "image",
+          "src": "https://images.unsplash.com/photo-1541913299-273fd84d10c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTA2NTU5fDB8MXxzZWFyY2h8MXx8cmluZyUyMGxpZ2h0JTIwZ2xvd2luZyUyMGluJTIwZnJvbnQlMjBvZiUyMGZhY2V8ZW58MXwwfHx8MTc5MzcyMDY0OXww&ixlib=rb-4.1.0&q=80&w=1080",
+          "alt": "person holding white ring light",
+          "caption": "Photo by Chaitanya Tatikonda on Unsplash",
+          "photographer": "Chaitanya Tatikonda",
+          "photographerUrl": "https://unsplash.com/@tvschaitanya?utm_source=makeupfaceai&utm_medium=referral",
+          "photoUrl": "https://unsplash.com/photos/person-holding-white-ring-light-1Kqc8ymfMKY?utm_source=makeupfaceai&utm_medium=referral"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Angle: Straight On, Camera at Eye Level"
+        },
+        {
+          "type": "paragraph",
+          "text": "The classic selfie angle, chin down and camera high, is great for Instagram. It's terrible for AI makeup analysis. That angle distorts proportions, hides your jawline, and makes your forehead look larger. The AI then places contour and highlight based on a face shape you don't actually have."
+        },
+        {
+          "type": "paragraph",
+          "text": "For analysis and try-on, hold the camera at eye level. Look straight into the lens. Keep your head level, not tilted. Your whole face should be visible from hairline to chin, and from ear to ear."
+        },
+        {
+          "type": "paragraph",
+          "text": "A tripod or a stack of books helps. Prop your phone, set a timer, and step back. You want a little space between you and the camera so the lens doesn't widen your nose. Most phone front cameras are wide angle, and up close they exaggerate the center of your face. Arm's length or a bit more is usually right."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Camera at eye level, head straight, eyes to the lens.",
+            "Whole face in frame, hairline to chin, ear to ear.",
+            "Use a timer and prop the phone to avoid wide-angle distortion."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Hair Off the Face and a Clean Background"
+        },
+        {
+          "type": "paragraph",
+          "text": "Hair is the number one thing I see blocking good AI reads. A few strands across the cheek can look like a shadow or a contour line. Bangs covering your forehead hide the top landmarks. Tie your hair back, or at least pin it away from your cheeks and forehead."
+        },
+        {
+          "type": "paragraph",
+          "text": "Background matters less, but a plain wall helps. A busy background with strong patterns or bright objects can pull the AI's attention or create edge artifacts around your face. Stand a few feet from a plain wall. Avoid standing right against it so you don't cast a shadow."
+        },
+        {
+          "type": "paragraph",
+          "text": "If you wear glasses, take them off for the photo unless you're specifically testing eye makeup with glasses. Frames can block eye corners and confuse eye makeup placement. Same goes for heavy jewelry near the face."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Tie hair back or pin it away from cheeks and forehead.",
+            "Use a plain, uncluttered background a few feet behind you.",
+            "Remove glasses and face-framing jewelry for a clean read."
+          ]
+        },
+        {
+          "type": "image",
+          "src": "https://images.unsplash.com/photo-1588075438444-11018654f08d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTA2NTU5fDB8MXxzZWFyY2h8OHx8aGFpciUyMHB1bGxlZCUyMGJhY2slMjBjbGVhbiUyMHdhbGwlMjBwb3J0cmFpdHxlbnwxfDB8fHwxNzkzNzIwNjUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+          "alt": "brown and black hair on white background",
+          "caption": "Photo by Kasia Serbin on Unsplash",
+          "photographer": "Kasia Serbin",
+          "photographerUrl": "https://unsplash.com/@katersss?utm_source=makeupfaceai&utm_medium=referral",
+          "photoUrl": "https://unsplash.com/photos/brown-and-black-hair-on-white-background-UxcRjTtzLXw?utm_source=makeupfaceai&utm_medium=referral"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "No Heavy Filters Before Analysis or Try-On"
+        },
+        {
+          "type": "paragraph",
+          "text": "This is the big one. Beauty filters smooth skin, change eye size, slim the jaw, and alter skin tone. If you upload a filtered photo, the AI is analyzing a face that isn't yours. The makeup placement will be based on edited features. Then when you try the look in real life, it won't match."
+        },
+        {
+          "type": "paragraph",
+          "text": "Turn off all filters in your camera app. That includes the automatic ones some phones apply without telling you. Check your settings. If your photo looks smoother than what you see in the mirror, it's filtered."
+        },
+        {
+          "type": "paragraph",
+          "text": "You also want a neutral expression. Don't smile too wide or scrunch your eyes. A relaxed, closed-mouth expression keeps your features in their natural position. That gives the AI the most accurate landmarks to work from."
+        },
+        {
+          "type": "paragraph",
+          "text": "If you've been getting weird results and you're not sure why, start with a clean photo. There's a free guide on [first photo setup for face tools](https://rizzassistgo.com/blog/first-photo-setup-face-tools/) that walks through the basics step by step. It's a good sanity check before you blame the app."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Turn off beauty filters and auto-enhance in your camera.",
+            "Use a neutral expression, relaxed face, eyes open.",
+            "Check that your photo looks like your mirror reflection, not a smoothed version."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Eye and Face Landmark Accuracy: Why Small Things Matter"
+        },
+        {
+          "type": "paragraph",
+          "text": "Eye makeup is where bad photos show up fastest. If the AI misreads your eye corners, winged liner will point the wrong way. If it misreads your lid space, shadow will sit too high or too low. That's why eye-level, straight-on shots matter so much."
+        },
+        {
+          "type": "paragraph",
+          "text": "You also want your eyes open and looking at the camera. Not down at your phone screen. Looking down changes the shape of your lid and can make the AI place crease color in the wrong spot."
+        },
+        {
+          "type": "paragraph",
+          "text": "For a deeper walkthrough on getting eye and face landmarks right, there's a [photo setup guide for face and eye AI tools](https://rizzassistgo.com/blog/photo-setup-guide-face-eye-ai-tools/) that covers distance, focus, and expression. It's worth a read if you plan to test eye looks often."
+        },
+        {
+          "type": "paragraph",
+          "text": "One more tip: clean your lens. A smudged phone camera adds haze and softens edges. The AI has less to work with. A quick wipe with a microfiber cloth makes a real difference."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Look into the lens, not down at the screen.",
+            "Keep eyes open and relaxed, no squinting.",
+            "Wipe your camera lens before every session."
+          ]
+        },
+        {
+          "type": "image",
+          "src": "https://images.unsplash.com/photo-1765719092673-48c4b9a222a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTA2NTU5fDB8MXxzZWFyY2h8MTF8fHBob25lJTIwb24lMjB0cmlwb2QlMjBleWUlMjBsZXZlbCUyMG1pcnJvcnxlbnwxfDB8fHwxNzkzNzIwNjUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+          "alt": "Smartphone recording in a mosque",
+          "caption": "Photo by M Sohaib on Unsplash",
+          "photographer": "M Sohaib",
+          "photographerUrl": "https://unsplash.com/@msohaib?utm_source=makeupfaceai&utm_medium=referral",
+          "photoUrl": "https://unsplash.com/photos/smartphone-recording-in-a-mosque-B2qtobljgxU?utm_source=makeupfaceai&utm_medium=referral"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "A Simple Photo Setup You Can Repeat"
+        },
+        {
+          "type": "paragraph",
+          "text": "Here's a routine I give students. It takes two minutes and saves a lot of frustration."
+        },
+        {
+          "type": "paragraph",
+          "text": "Step one: find a spot facing a window or a soft lamp. Step two: tie your hair back and take off glasses. Step three: prop your phone at eye level, set a timer, and step back to arm's length. Step four: turn off all filters, relax your face, and take three shots. Step five: pick the one where your whole face is evenly lit and in focus."
+        },
+        {
+          "type": "paragraph",
+          "text": "Save that photo. Use it as your baseline for every AI makeup test. When you change your hair or lighting, take a new baseline. Consistency is what makes your results comparable."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Face a window or soft light.",
+            "Hair back, glasses off.",
+            "Phone at eye level, arm's length, timer on.",
+            "Filters off, neutral expression, three shots.",
+            "Save the cleanest one as your baseline."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Practice With a Free Face Shape Tool"
+        },
+        {
+          "type": "paragraph",
+          "text": "Once you have a clean front-facing photo, a good way to check that the AI is reading you correctly is to run it through a simple analysis tool. The [face shape detector](https://rizzassistgo.com/face-shape-detector/) on Rizz Assist is free and gives you a quick read on your face shape. If the result matches what you know about your face, your photo is probably clean. If it's way off, your lighting or angle needs work."
+        },
+        {
+          "type": "paragraph",
+          "text": "This is also a low-pressure way to practice your photo setup. You're not testing a full makeup look. You're just checking that the input is good. Once the face shape read looks right, you can move on to try-on with confidence."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use a clean front-facing photo for the face shape detector.",
+            "If the result looks wrong, revisit lighting and angle.",
+            "Use it as a quick input check before full makeup try-on."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Common Mistakes and How to Fix Them"
+        },
+        {
+          "type": "paragraph",
+          "text": "Here are the issues I see most often, and the fixes."
+        },
+        {
+          "type": "paragraph",
+          "text": "Backlighting: your face is dark and the window is bright. Fix: turn around and face the window."
+        },
+        {
+          "type": "paragraph",
+          "text": "Tilted head: the AI reads a different jawline. Fix: level your chin and look straight ahead."
+        },
+        {
+          "type": "paragraph",
+          "text": "Hair across the cheek: reads as a shadow. Fix: pin it back."
+        },
+        {
+          "type": "paragraph",
+          "text": "Beauty filter: changes your features. Fix: turn it off in camera settings."
+        },
+        {
+          "type": "paragraph",
+          "text": "Too close to the lens: exaggerates your nose and center face. Fix: step back and use a timer."
+        },
+        {
+          "type": "paragraph",
+          "text": "Looking down at the screen: changes your eye shape. Fix: look at the lens, not the preview."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Backlit? Turn to face the light.",
+            "Tilted? Level your chin.",
+            "Hair in the way? Pin it back.",
+            "Filter on? Turn it off.",
+            "Too close? Step back and use a timer.",
+            "Looking down? Eyes to the lens."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Putting It All Together"
+        },
+        {
+          "type": "paragraph",
+          "text": "AI makeup tools are only as good as the photo you feed them. Soft even light, a straight-on angle at eye level, hair off your face, and no filters will get you results that actually translate to real life. It's not about taking a prettier selfie. It's about taking an honest one."
+        },
+        {
+          "type": "paragraph",
+          "text": "Take five minutes to set up your baseline photo today. Then test one look. If it lands where you expect, you know your input is solid. If it doesn't, go back to the checklist. Nine times out of ten, the fix is in the photo, not the tool."
+        },
+        {
+          "type": "quote",
+          "text": "A clean photo isn't vanity. It's the foundation of every good virtual try-on."
+        }
+      ],
+      "references": [
+        {
+          "title": "first photo setup for face tools",
+          "url": "https://rizzassistgo.com/blog/first-photo-setup-face-tools/",
+          "author": "Rizz Assist",
+          "note": "Related free guide or tool. Linked for the reader, not as a rewrite."
+        },
+        {
+          "title": "photo setup guide for face and eye AI tools",
+          "url": "https://rizzassistgo.com/blog/photo-setup-guide-face-eye-ai-tools/",
+          "author": "Rizz Assist",
+          "note": "Related free guide or tool. Linked for the reader, not as a rewrite."
+        },
+        {
+          "title": "face shape detector",
+          "url": "https://rizzassistgo.com/face-shape-detector/",
+          "author": "Rizz Assist",
+          "note": "Related free guide or tool. Linked for the reader, not as a rewrite."
+        }
+      ],
+      "imageCredits": [
+        {
+          "photographer": "Dennis Zhang",
+          "photographerUrl": "https://unsplash.com/@windagh?utm_source=makeupfaceai&utm_medium=referral",
+          "photoUrl": "https://unsplash.com/photos/woman-reaches-up-to-the-sun-in-nature-ET3iK5Rl2QA?utm_source=makeupfaceai&utm_medium=referral",
+          "alt": "Woman reaches up to the sun in nature"
+        },
+        {
+          "photographer": "Chaitanya Tatikonda",
+          "photographerUrl": "https://unsplash.com/@tvschaitanya?utm_source=makeupfaceai&utm_medium=referral",
+          "photoUrl": "https://unsplash.com/photos/person-holding-white-ring-light-1Kqc8ymfMKY?utm_source=makeupfaceai&utm_medium=referral",
+          "alt": "person holding white ring light"
+        },
+        {
+          "photographer": "Kasia Serbin",
+          "photographerUrl": "https://unsplash.com/@katersss?utm_source=makeupfaceai&utm_medium=referral",
+          "photoUrl": "https://unsplash.com/photos/brown-and-black-hair-on-white-background-UxcRjTtzLXw?utm_source=makeupfaceai&utm_medium=referral",
+          "alt": "brown and black hair on white background"
+        },
+        {
+          "photographer": "M Sohaib",
+          "photographerUrl": "https://unsplash.com/@msohaib?utm_source=makeupfaceai&utm_medium=referral",
+          "photoUrl": "https://unsplash.com/photos/smartphone-recording-in-a-mosque-B2qtobljgxU?utm_source=makeupfaceai&utm_medium=referral",
+          "alt": "Smartphone recording in a mosque"
+        }
+      ],
+      "generated": true,
+      "relatedToolHref": "/analyze",
+      "relatedToolLabel": "Analyze my face",
+      "topicId": "rizz-photo-ai-makeup",
+      "rizzBacklinks": true
+    },
+    {
       "slug": "lip-liner-shapes-without-looking-drawn-on",
       "title": "Lip Liner That Shapes Without Looking Drawn On",
       "excerpt": "Lip liner doesn't have to look like a stencil. Learn how to shape your cupid's bow, corners, and fill for thin, full, or uneven lips with shade pairing tips that keep it soft and natural.",
@@ -988,7 +1390,8 @@
   "topicHistory": [
     "undertone-foundation",
     "clean-girl-realistic",
-    "lip-liner-shape"
+    "lip-liner-shape",
+    "rizz-photo-ai-makeup"
   ],
-  "lastGeneratedDate": "2026-11-02"
+  "lastGeneratedDate": "2026-11-03"
 }
