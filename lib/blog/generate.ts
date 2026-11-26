@@ -18,6 +18,7 @@ import {
 import { generateArticle, generateImageBriefs } from "./llm";
 import { loadBlogStore, saveBlogStore, todayUtc } from "./store";
 import { resolveImagesForBriefs } from "./unsplash";
+import { blogger } from "@/lib/tools/blogger";
 import { sanitizeDeep } from "./sanitize";
 
 function pickFromPool<T extends BlogTopic>(pool: T[], history: string[]): T {
@@ -105,6 +106,14 @@ export type GenerateResult = {
 export async function generateDailyBlogPost(options?: {
   force?: boolean;
 }): Promise<GenerateResult> {
+  if (!blogger) {
+    return {
+      created: false,
+      reason:
+        "Blogger is paused. Set `blogger = true` in lib/tools/blogger.ts to resume.",
+    };
+  }
+
   const store = loadBlogStore();
   const today = todayUtc();
 

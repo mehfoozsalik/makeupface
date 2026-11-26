@@ -135,6 +135,8 @@ Open [http://localhost:3000](http://localhost:3000).
 | `CRON_SECRET` | Server | Protects `/api/cron/generate-blog` |
 | `NEXT_PUBLIC_APP_URL` | Public | Canonical URLs, sitemap, OG (`https://makeupface.app`) |
 
+Daily AI posts: flip `blogger` in `lib/tools/blogger.ts` (`true` / `false`).
+
 Never expose `DEEPSEEK_API_KEY` to client code.
 
 ### Scripts
